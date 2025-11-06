@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from "react";
-import { AuthContext } from "./AuthContext";
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
@@ -9,7 +7,9 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import { useEffect, useState } from "react";
 import { auth } from "../Firebase/Firebsae.config";
+import { AuthContext } from "./AuthContext";
 
 const googleAuthProvider = new GoogleAuthProvider();
 
@@ -46,7 +46,7 @@ const AuthProvider = ({ children }) => {
       setUser(createUser);
       if (createUser) {
         const loggedUser = { email: createUser.email };
-        fetch("http://localhost:3000/getToken", {
+        fetch("https://smart-deals-server-steel.vercel.app/getToken", {
           method: "POST",
           headers: {
             "content-type": "application/json",

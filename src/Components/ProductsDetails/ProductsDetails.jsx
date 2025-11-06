@@ -1,9 +1,9 @@
-import React, { use, useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import { useLoaderData } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 
-import Swal from "sweetalert2";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const ProductsDetails = () => {
   const { _id: productId } = useLoaderData();
@@ -13,7 +13,7 @@ const ProductsDetails = () => {
   const [bids, setBids] = useState([]);
 
   // useEffect(() => {
-  //   fetch(`http://localhost:3000/products/Bids/${productId}`, {
+  //   fetch(`https://smart-deals-server-steel.vercel.app/products/Bids/${productId}`, {
   //     headers: {
   //       authorization: `Bearer ${user.accessToken}`,
   //     },
@@ -27,11 +27,14 @@ const ProductsDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/products/Bids/${productId}`, {
-        headers: {
-          authorization: `Bearer ${user.accessToken}`,
-        },
-      })
+      .get(
+        `https://smart-deals-server-steel.vercel.app/products/Bids/${productId}`,
+        {
+          headers: {
+            authorization: `Bearer ${user.accessToken}`,
+          },
+        }
+      )
       .then((data) => {
         console.log("after get the axios", data);
         setBids(data.data);
@@ -60,7 +63,7 @@ const ProductsDetails = () => {
       status: "pending",
     };
 
-    fetch("http://localhost:3000/Bids", {
+    fetch("https://smart-deals-server-steel.vercel.app/Bids", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -82,7 +85,7 @@ const ProductsDetails = () => {
           // add the new bid to the state
           newBid._id = data.insertedId;
           const newBids = [...bids, newBid];
-          newBids.sort((a, b) => b.bid_price - a.bid_price);
+          newBids.sort((a, b) => Number(b.bid_price) - Number(a.bid_price));
           setBids(newBids);
         }
       });

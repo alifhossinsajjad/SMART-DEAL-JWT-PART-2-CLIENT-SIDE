@@ -1,21 +1,20 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.jsx";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
-import RootLayout from "./Layout/RootLayout.jsx";
-import Home from "./Components/Home/Home.jsx";
-import AllProducts from "./Components/AllProducts/AllProducts.jsx";
-import AuthProvider from "./Context/AuthProvider.jsx";
-import Register from "./Components/Register/Register.jsx";
-import Login from "./Components/Login/Login.jsx";
-import MyProducts from "./Components/MyProducts/MyProducts.jsx";
-import MyBids from "./Components/MyBids/MyBids.jsx";
-import PrivetRoutes from "./Context/PrivetRoutes.jsx";
-import ProductsDetails from "./Components/ProductsDetails/ProductsDetails.jsx";
 import { ToastContainer } from "react-toastify";
+import AllProducts from "./Components/AllProducts/AllProducts.jsx";
 import CreateAProduct from "./Components/CreateAProduct/CreateAProduct.jsx";
+import Home from "./Components/Home/Home.jsx";
+import Login from "./Components/Login/Login.jsx";
+import MyBids from "./Components/MyBids/MyBids.jsx";
+import MyProducts from "./Components/MyProducts/MyProducts.jsx";
+import ProductsDetails from "./Components/ProductsDetails/ProductsDetails.jsx";
+import Register from "./Components/Register/Register.jsx";
+import AuthProvider from "./Context/AuthProvider.jsx";
+import PrivetRoutes from "./Context/PrivetRoutes.jsx";
+import "./index.css";
+import RootLayout from "./Layout/RootLayout.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -56,7 +55,9 @@ const router = createBrowserRouter([
       {
         path: "/productDetails/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/products/${params.id}`),
+          fetch(
+            `https://smart-deals-server-steel.vercel.app/products/${params.id}`
+          ),
         element: (
           <PrivetRoutes>
             <ProductsDetails />

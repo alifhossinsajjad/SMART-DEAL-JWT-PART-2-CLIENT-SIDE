@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
@@ -40,7 +40,7 @@ const CreateAProduct = () => {
       created_at: new Date(),
     };
 
-    // axios.post("http://localhost:3000/products", productData)
+    // axios.post("https://smart-deals-server-steel.vercel.app/products", productData)
     //   .then((data) => {
     //     console.log(data.data);
     //     if (data.data.insertedId) {
@@ -73,7 +73,7 @@ const CreateAProduct = () => {
     axiosSecure
       .post("/products", newProductData)
       .then((data) => {
-        console.log(data.data);
+        // console.log(data.data);
         if (data.data.insertedId) {
           toast.success(" Product created successfully!");
           e.target.reset();

@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
-import { AuthContext } from "../../Context/AuthContext";
-import { FaRegEye, FaEyeSlash } from "react-icons/fa";
-import { toast } from "react-toastify";
+import { useContext, useState } from "react";
+import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 import { Link, useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Register = () => {
   const { createUser, setProfile, signInWithGoole } = useContext(AuthContext);
@@ -40,7 +40,7 @@ const Register = () => {
             const newUser = { name, email, image: photo };
             console.log("new user 2", newUser);
 
-            fetch("http://localhost:3000/users", {
+            fetch("https://smart-deals-server-steel.vercel.app/users", {
               method: "POST",
               headers: { "content-type": "application/json" },
               body: JSON.stringify(newUser),

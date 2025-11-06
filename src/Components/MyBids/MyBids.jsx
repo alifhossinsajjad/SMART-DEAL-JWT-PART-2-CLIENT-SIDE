@@ -1,28 +1,25 @@
-import React, { use, useEffect, useState } from "react";
-import { AuthContext } from "../../Context/AuthContext";
+import { use, useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Context/AuthContext";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const MyBids = () => {
   const { user } = use(AuthContext);
 
   const [bids, setBids] = useState([]);
-  
-  const axiosSecure = useAxiosSecure()
-  
+
+  const axiosSecure = useAxiosSecure();
+
   useEffect(() => {
-    axiosSecure.get(`Bids?email=${user?.email}`)
-    .then((data)=> {
+    axiosSecure.get(`Bids?email=${user?.email}`).then((data) => {
       console.log(data.data);
-      setBids(data.data)
-    })
-  }, [user,axiosSecure]);
-
-
+      setBids(data.data);
+    });
+  }, [user, axiosSecure]);
 
   // useEffect(() => {
   //   if (user?.email) {
-  //     fetch(`http://localhost:3000/Bids?email=${user?.email}`, {
+  //     fetch(`https://smart-deals-server-steel.vercel.app/Bids?email=${user?.email}`, {
   //       headers: {
   //         authorization: `Bearer ${user.accessToken}`,
   //       },
@@ -37,7 +34,6 @@ const MyBids = () => {
   //   }
   // }, [user]);
 
-
   const handleDeleteBid = (_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -49,7 +45,7 @@ const MyBids = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/Bids/${_id}`, {
+        fetch(`https://smart-deals-server-steel.vercel.app/Bids/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
