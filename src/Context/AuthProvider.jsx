@@ -46,7 +46,7 @@ const AuthProvider = ({ children }) => {
       setUser(createUser);
       if (createUser) {
         const loggedUser = { email: createUser.email };
-        fetch("http://localhost:3000/getToken", {
+        fetch("https://dragon-ball-server.vercel.app/getToken", {
           method: "POST",
           headers: {
             "content-type": "application/json",
