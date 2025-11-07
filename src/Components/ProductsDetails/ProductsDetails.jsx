@@ -13,7 +13,7 @@ const ProductsDetails = () => {
   const [bids, setBids] = useState([]);
 
   // useEffect(() => {
-  //   fetch(`https://dragon-ball-server.vercel.app//products/Bids/${productId}`, {
+  //   fetch(`https://smart-deals-server-steel.vercel.app//products/Bids/${productId}`, {
   //     headers: {
   //       authorization: `Bearer ${user.accessToken}`,
   //     },
@@ -28,7 +28,7 @@ const ProductsDetails = () => {
   useEffect(() => {
     axios
       .get(
-        `https://dragon-ball-server.vercel.app/products/Bids/${productId}`,
+        `https://smart-deals-server-steel.vercel.app//products/Bids/${productId}`,
         {
           headers: {
             authorization: `Bearer ${user.accessToken}`,
@@ -63,7 +63,7 @@ const ProductsDetails = () => {
       status: "pending",
     };
 
-    fetch("https://dragon-ball-server.vercel.app/Bids", {
+    fetch("https://smart-deals-server-steel.vercel.app/Bids", {
       method: "POST",
       headers: {
         "content-type": "application/json",

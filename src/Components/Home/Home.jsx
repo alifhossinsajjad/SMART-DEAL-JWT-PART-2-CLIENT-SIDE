@@ -6,7 +6,7 @@ const Home = () => {
   const [latestProducts, setLatestProducts] = useState([]);
 
   useEffect(() => {
-    fetch("https://dragon-ball-server.vercel.app/latest-products")
+    fetch("https://smart-deals-server-steel.vercel.app/latest-products")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

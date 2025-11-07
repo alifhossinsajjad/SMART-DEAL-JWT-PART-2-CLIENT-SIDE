@@ -55,7 +55,9 @@ const router = createBrowserRouter([
       {
         path: "/productDetails/:id",
         loader: ({ params }) =>
-          fetch(`https://dragon-ball-server.vercel.app/products/${params.id}`),
+          fetch(
+            `https://smart-deals-server-steel.vercel.app/products/${params.id}`
+          ),
         element: (
           <PrivetRoutes>
             <ProductsDetails />

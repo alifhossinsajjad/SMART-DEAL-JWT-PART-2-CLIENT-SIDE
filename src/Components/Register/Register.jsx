@@ -40,7 +40,7 @@ const Register = () => {
             const newUser = { name, email, image: photo };
             console.log("new user 2", newUser);
 
-            fetch("https://dragon-ball-server.vercel.app/users", {
+            fetch("https://smart-deals-server-steel.vercel.app/users", {
               method: "POST",
               headers: { "content-type": "application/json" },
               body: JSON.stringify(newUser),
