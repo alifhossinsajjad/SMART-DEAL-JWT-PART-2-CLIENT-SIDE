@@ -13,7 +13,7 @@ const ProductsDetails = () => {
   const [bids, setBids] = useState([]);
 
   // useEffect(() => {
-  //   fetch(`https://smart-deals-server-steel.vercel.app/products/Bids/${productId}`, {
+  //   fetch(`http://localhost:3000//products/Bids/${productId}`, {
   //     headers: {
   //       authorization: `Bearer ${user.accessToken}`,
   //     },
@@ -27,14 +27,11 @@ const ProductsDetails = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://smart-deals-server-steel.vercel.app/products/Bids/${productId}`,
-        {
-          headers: {
-            authorization: `Bearer ${user.accessToken}`,
-          },
-        }
-      )
+      .get(`http://localhost:3000//products/Bids/${productId}`, {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      })
       .then((data) => {
         console.log("after get the axios", data);
         setBids(data.data);
@@ -63,7 +60,7 @@ const ProductsDetails = () => {
       status: "pending",
     };
 
-    fetch("https://smart-deals-server-steel.vercel.app/Bids", {
+    fetch("http://localhost:3000//Bids", {
       method: "POST",
       headers: {
         "content-type": "application/json",

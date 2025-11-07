@@ -19,7 +19,7 @@ const MyBids = () => {
 
   // useEffect(() => {
   //   if (user?.email) {
-  //     fetch(`https://smart-deals-server-steel.vercel.app/Bids?email=${user?.email}`, {
+  //     fetch(`http://localhost:3000//Bids?email=${user?.email}`, {
   //       headers: {
   //         authorization: `Bearer ${user.accessToken}`,
   //       },
@@ -45,7 +45,7 @@ const MyBids = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://smart-deals-server-steel.vercel.app/Bids/${_id}`, {
+        fetch(`http://localhost:3000//Bids/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

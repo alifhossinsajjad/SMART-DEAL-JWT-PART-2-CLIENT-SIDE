@@ -1,10 +1,7 @@
-import React, { use } from "react";
 import Product from "../Product/Product";
 
-const LatestProduts = ({ latestProductsPromise }) => {
-  const products = use(latestProductsPromise);
-  
-  // console.log(products);
+const LatestProduts = ({ latestProducts }) => {
+  console.log(latestProducts);
 
   return (
     <div className="w-10/12 mx-auto">
@@ -12,7 +9,7 @@ const LatestProduts = ({ latestProductsPromise }) => {
         Recent<span className="text-primary">Products</span>
       </h2>
       <div className="grid xl:lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center items-center gap-5">
-        {products.map((product) => (
+        {latestProducts.map((product) => (
           <Product key={product._id} product={product} />
         ))}
       </div>
