@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 
 const axiosInstance = axios.create({
-  baseURL: "https://dragon-ball-server.vercel.app",
+  baseURL: "https://smart-deals-server-steel.vercel.app/",
 });
 
 const useAxiosSecure = () => {
